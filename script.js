@@ -47,12 +47,7 @@ const P=[
 ['environment','Students cleaning their classroom'],
 ['digital-responsibility','Student using a smartphone in class'],
 ['conclusion','Teacher and students smiling together']
-].map(p=>({
-  src:p[0]+'.jpg',
-  brief:p[1]
-}));
-
-].map(p=>({src:p[0]+'.jpg',brief:p[1]}));
+].map(p=>({src:'images/'+p[0]+'.jpg',brief:p[1]}));
 function art(d,n){const p=P[n];return `<img src="${p.src}" alt="${p.brief}" decoding="async" ${n?'loading="lazy"':''}><div class="ph"><span>Photograph</span><p>${p.brief}</p></div>`}
 document.addEventListener('error',e=>{if(e.target.tagName=='IMG'&&e.target.closest('.art'))e.target.closest('.art').classList.add('missing')},true);
 document.addEventListener('load',e=>{if(e.target.tagName=='IMG'&&e.target.closest('.art'))e.target.closest('.art').classList.add('ready')},true);
