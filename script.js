@@ -23,31 +23,36 @@ const S=[
 [B+' · Digital','Digital Responsibilities','Technology serves learning when used wisely. Students are expected to:|Use devices only for approved activities|Keep phones silent and out of sight|Respect others’ privacy online|Never record or share photos without permission|Communicate kindly in every digital space','phone',200],
 ['Conclusion','Rights and Responsibilities Walk Together','When students know their rights and fulfil their responsibilities, the classroom becomes a place of trust, growth and respect.','star',230]];
 
-/* PHOTO MANIFEST — one real photograph per screen. Drop files into /images using these names,
-   or replace "src" with a direct https URL to a licensed photo (Unsplash, Pexels, Pixabay). */
+
+/* PHOTO MANIFEST — all images are in the same folder */
 const P=[
-['01-arriving-at-school','Students walking into a school building together on a bright morning'],
-['02-quality-education','Teacher explaining a lesson at the whiteboard to attentive students'],
-['03-respectful-expression','Student raising a hand to share an idea in class'],
-['04-equal-treatment','Teacher engaging fairly with a diverse group of students'],
-['05-safe-environment','Bright, welcoming classroom with students seated at tidy desks'],
-['06-privacy-dignity','Student writing in a notebook, shielding it for privacy'],
-['07-academic-support','Teacher helping a student with schoolwork at a desk'],
-['08-participation','Students discussing a lesson together in a small group'],
-['09-fair-assessment','Teacher reviewing a student’s written work with a pen'],
-['10-bullying-protection','Student comforting and supporting a classmate in school'],
-['11-no-discrimination','Students of different backgrounds studying together'],
-['12-no-abuse','Teacher speaking calmly and respectfully with a student'],
-['13-belongings','Student placing books safely in a school locker'],
-['14-fair-discipline','Teacher listening carefully to a student in a one-to-one talk'],
-['15-privacy','Student privately reading a report card'],
-['16-free-expression','Student speaking respectfully during a class discussion'],
-['17-academic-responsibility','Student studying and doing homework at a desk'],
-['18-behavior','Students listening attentively to their teacher'],
-['19-environment','Students cleaning and tidying their classroom'],
-['20-digital-responsibility','Student secretly using a smartphone under a classroom desk'],
-['21-conclusion','Teacher and students smiling together in a classroom']
-].map(p=>({src:'images/'+p[0]+'.jpg',brief:p[1]}));
+['arriving-at-school','Students walking into a school building together'],
+['quality-education','Teacher explaining a lesson to attentive students'],
+['free-expression','Student raising a hand to share an idea'],
+['equal-treatment','Teacher engaging fairly with diverse students'],
+['safe-environment','A bright and welcoming classroom'],
+['privacy','Student writing privately in a notebook'],
+['academic-support','Teacher helping a student with schoolwork'],
+['participation','Students discussing a lesson together'],
+['fair-assessment','Teacher reviewing a student’s written work'],
+['bullying-protection','Student supporting a classmate'],
+['no-discrimination','Students of different backgrounds studying together'],
+['no-abuse','Teacher speaking respectfully with a student'],
+['belongings','Student keeping books safely in a locker'],
+['fair-discipline','Teacher listening carefully to a student'],
+['privacy','Student privately reading a report card'],
+['free-expression','Student speaking during a class discussion'],
+['academic-responsibility','Student studying and doing homework'],
+['behavior','Students listening attentively to their teacher'],
+['environment','Students cleaning their classroom'],
+['digital-responsibility','Student using a smartphone in class'],
+['conclusion','Teacher and students smiling together']
+].map(p=>({
+  src:p[0]+'.jpg',
+  brief:p[1]
+}));
+
+].map(p=>({src:p[0]+'.jpg',brief:p[1]}));
 function art(d,n){const p=P[n];return `<img src="${p.src}" alt="${p.brief}" decoding="async" ${n?'loading="lazy"':''}><div class="ph"><span>Photograph</span><p>${p.brief}</p></div>`}
 document.addEventListener('error',e=>{if(e.target.tagName=='IMG'&&e.target.closest('.art'))e.target.closest('.art').classList.add('missing')},true);
 document.addEventListener('load',e=>{if(e.target.tagName=='IMG'&&e.target.closest('.art'))e.target.closest('.art').classList.add('ready')},true);
